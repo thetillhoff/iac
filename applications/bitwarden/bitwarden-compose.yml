@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  caddy:
+    image: caddy
+    restart: always
+    ports:
+    - 80:80
+    - 443:443
+    volumes:
+    - Caddyfile:/etc/caddy/Caddyfile
+    - /mnt/volume/caddy:/data
+
+  bitwarden:
+    image: bitwardenrs/server
+    restart: always
+    env_file:
+      - bitwarden.secret.ignored
+    environment:
+      - DOMAIN=https://pw.enforge.de
+      - SIGNUPS_ALLOWED=false
+    volumes:
+    - /mnt/volume/bitwarden:/data

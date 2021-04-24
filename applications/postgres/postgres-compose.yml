@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    env_file:
+      - postgres.secret.ignored
+    ports:
+    - 5432:5432
+    volumes:
+    - /data/postgres:/var/lib/postgresql/data

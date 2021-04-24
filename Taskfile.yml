@@ -1,0 +1,63 @@
+# https://taskfile.dev
+
+version: '3'
+
+silent: true
+
+tasks:
+
+  default:
+    desc: Run complete configuration for this host.
+    cmds:
+      - task: configure-inital
+      - task: configure-disk-management
+      - task: configure-backup
+      - task: configure-applications # Might automatically reboot the host
+      - echo "No applications are 'up'ed by default to prevent migration issues"
+
+  app:up:
+    desc: Start application APP
+    cmds:
+      - cd applications/$APP; docker-compose -p $APP -f $APP-compose.yml up -d
+
+  app:down:
+    desc: Stop application APP
+    cmds:
+      - cd applications/$APP; docker-compose -p $APP -f $APP-compose.yml down
+
+
+  configure-applications:
+    desc: Configure applications for/on this host
+    dir: applications
+    cmds:
+      - |
+        if [ -f "$(hostname).sh" ]; then
+          ./$(hostname).sh
+        fi
+
+  configure-backup:
+    desc: Configure backup
+    dir: backup
+    cmds:
+      - |
+        if [ -f "$(hostname).sh" ]; then
+          ./$(hostname).sh
+        fi
+
+  configure-disk-management:
+    desc: Configure disks, mounts, filesystems
+    dir: disk-management
+    cmds:
+      - |
+        if [ -f "$(hostname).sh" ]; then
+          ./$(hostname).sh
+        fi
+
+  configure-initial:
+    desc: Configure hostname, os
+    dir: initial
+    cmds:
+      - |
+        if [ -f "$(hostname).sh" ]; then
+          ./$(hostname).sh
+        fi

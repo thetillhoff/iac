@@ -14,7 +14,7 @@ services:
     env_file:
       - bookstack.secret.ignored
     volumes:
-      - /bookstack-config:/config
+      - ${PWD}/bookstack-config:/config
     ports:
       - 6875:80
     depends_on:

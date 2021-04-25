@@ -1,18 +1,9 @@
 version: "3.8"
 
 services:
-  caddy:
-    image: caddy
-    restart: always
-    ports:
-    - 80:80
-    - 443:443
-    volumes:
-    - Caddyfile:/etc/caddy/Caddyfile
-    - /mnt/volume/caddy:/data
-
   bitwarden:
     image: bitwardenrs/server
+    container_name: bitwarden
     restart: always
     env_file:
       - bitwarden.secret.ignored
@@ -21,3 +12,10 @@ services:
       - SIGNUPS_ALLOWED=false
     volumes:
     - /mnt/volume/bitwarden:/data
+    networks:
+    - shared
+
+networks:
+  shared:
+    external:
+      name: shared

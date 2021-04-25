@@ -2,8 +2,8 @@ version: '3'
 
 services:
   magicmirror:
-    container_name: magicmirror
     image: bastilimbach/docker-magicmirror
+    container_name: magicmirror
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro

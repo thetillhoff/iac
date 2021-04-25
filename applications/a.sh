@@ -27,3 +27,20 @@ file=bitwarden/bitwarden.secret.ignored
 if [ ! -f "$file" ]; then
   echo "ADMIN_TOKEN=$(openssl rand -base64 32)" > "$file"
 fi
+
+# create bookstack secret
+file=bookstack/bookstack.secret.ignored
+DB_ROOT_PASS=$(openssl rand -base64 32)
+DB_BOOKSTACK_USER=bookstack
+DB_BOOKSTACK_PASS=$(openssl rand -base64 32)
+if [ ! -f "$file" ]; then
+  echo "DB_USER=$DB_BOOKSTACK_USER" > "$file"
+  echo "DB_PASS=$DB_BOOKSTACK_PASS" >> "$file"
+fi
+# create bookstack-db secret
+file=bookstack/bookstack-db.secret.ignored
+if [ ! -f "$file" ]; then
+  echo "MYSQL_ROOT_PASSWORD=$DB_ROOT_PASS" > "$file"
+  echo "MYSQL_USER=$DB_BOOKSTACK_USER" >> "$file"
+  echo "MYSQL_PASSWORD=$DB_BOOKSTACK_PASS" >> "$file"
+fi

@@ -34,6 +34,7 @@ tasks:
         if [ -f "$(hostname).sh" ]; then
           ./$(hostname).sh
         fi
+      - echo "No applications are 'up'ed by default to prevent migration issues"
 
   configure-backup:
     desc: Configure backup

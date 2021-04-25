@@ -1,0 +1,44 @@
+---
+version: "2"
+services:
+  bookstack:
+    image: ghcr.io/linuxserver/bookstack
+    container_name: bookstack
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - APP_URL=
+      - DB_HOST=bookstack_db
+      - DB_DATABASE=bookstackapp
+    env_file:
+      - bookstack.secret.ignored
+    volumes:
+      - /bookstack-config:/config
+    ports:
+      - 6875:80
+    depends_on:
+      - bookstack_db
+    networks:
+    - shared
+
+  bookstack_db:
+    image: ghcr.io/linuxserver/mariadb
+    container_name: bookstack_db
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - MYSQL_DATABASE=bookstackapp
+    env_file:
+      - bookstack-db.secret.ignored
+    volumes:
+      - /mnt/volume/bookstack-db:/config
+    restart: unless-stopped
+    networks:
+    - shared
+
+networks:
+shared:
+  external:
+    name: shared

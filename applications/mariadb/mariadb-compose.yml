@@ -3,6 +3,7 @@ version: "3.8"
 services:
   db:
     image: mariadb
+    container_name: mariadb
     restart: always
     env_file:
       - mariadb.secret.ignored

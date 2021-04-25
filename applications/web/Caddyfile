@@ -13,6 +13,9 @@ alpha-centauri.enforge.de {
 pw.enforge.de {
   reverse_proxy http://bitwarden
 }
+book.enforge.de {
+  reverse_proxy http://bookstack
+}
 :9999 {
   respond "I'm healthy!"
   #redir alpha-centauri.enforge.de{uri}

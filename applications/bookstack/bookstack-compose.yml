@@ -39,6 +39,6 @@ services:
     - shared
 
 networks:
-shared:
-  external:
-    name: shared
+  shared:
+    external:
+      name: shared

@@ -17,13 +17,15 @@ tasks:
 
   app:up:
     desc: Start application APP
+    dir: applications/$APP
     cmds:
-      - cd applications/$APP; docker-compose -p $APP -f $APP-compose.yml up -d
+      - docker-compose -p $APP -f $APP-compose.yml up -d
 
   app:down:
     desc: Stop application APP
+    dir: applications/$APP
     cmds:
-      - cd applications/$APP; docker-compose -p $APP -f $APP-compose.yml down
+      - docker-compose -p $APP -f $APP-compose.yml down
 
 
   configure-applications:

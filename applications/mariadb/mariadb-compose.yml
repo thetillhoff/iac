@@ -6,7 +6,7 @@ services:
     container_name: mariadb
     restart: always
     env_file:
-      - mariadb.secret.ignored
+      - ~/iac/applications/mariadb/mariadb.secret.ignored
     ports:
     - 3306:3306
     volumes:

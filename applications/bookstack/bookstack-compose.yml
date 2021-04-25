@@ -12,9 +12,9 @@ services:
       - DB_HOST=bookstack_db
       - DB_DATABASE=bookstackapp
     env_file:
-      - bookstack.secret.ignored
+      - ~/iac/applications/bookstack/bookstack.secret.ignored
     volumes:
-      - ${PWD}/bookstack-config:/config
+      - ~/iac/applications/bookstack/bookstack-config:/config
     ports:
       - 6875:80
     depends_on:
@@ -31,7 +31,7 @@ services:
       - TZ=Europe/London
       - MYSQL_DATABASE=bookstackapp
     env_file:
-      - bookstack-db.secret.ignored
+      - ~/iac/applications/bookstack/bookstack-db.secret.ignored
     volumes:
       - /mnt/volume/bookstack-db:/config
     restart: unless-stopped

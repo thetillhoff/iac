@@ -6,7 +6,7 @@ services:
     container_name: bitwarden
     restart: always
     env_file:
-      - bitwarden.secret.ignored
+      - ~/iac/applications/bitwarden/bitwarden.secret.ignored
     environment:
       - DOMAIN=https://pw.enforge.de
       - SIGNUPS_ALLOWED=false

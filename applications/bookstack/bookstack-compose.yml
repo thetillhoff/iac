@@ -11,7 +11,7 @@ services:
       - APP_URL=
       - DB_HOST=bookstack_db
       - DB_DATABASE=bookstackapp
-      - APPURL=https://book.enforge.de
+      - APP_URL=https://book.enforge.de
     env_file:
       - ~/iac/applications/bookstack/bookstack.secret.ignored
     volumes:

@@ -10,6 +10,7 @@ tasks:
     desc: Run complete configuration for this host.
     cmds:
       - task: configure-inital
+      - task: hardware
       - task: configure-disk-management
       - task: configure-backup
       - task: configure-applications # Might automatically reboot the host
@@ -59,6 +60,15 @@ tasks:
   configure-initial:
     desc: Configure hostname, os
     dir: initial
+    cmds:
+      - |
+        if [ -f "$(hostname).sh" ]; then
+          ./$(hostname).sh
+        fi
+
+  configure-hardware:
+    desc: Configure hardware
+    dir: hardware
     cmds:
       - |
         if [ -f "$(hostname).sh" ]; then

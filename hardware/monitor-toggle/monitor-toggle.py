@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-form time import sleep
+from time import sleep
 
 GPIO.setmode(GPIO.BCM) # GPIO numbering, not pin-numbering
 outputIO = 15

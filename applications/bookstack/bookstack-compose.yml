@@ -12,8 +12,10 @@ services:
       - DB_HOST=bookstack_db
       - DB_DATABASE=bookstackapp
       - APP_URL=https://book.enforge.de
+      - MAIL_DRIVER=smtp # configured in env_file
     env_file:
       - ~/iac/applications/bookstack/bookstack.secret.ignored
+      - ~/iac/applications/bookstack/bookstack.smtp.secret
     volumes:
       - ~/iac/applications/bookstack/bookstack-config:/config
     ports:

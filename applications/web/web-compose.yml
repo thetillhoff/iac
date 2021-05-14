@@ -8,6 +8,7 @@ services:
     ports:
     - 80:80
     - 443:443
+    - 9999:9999
     volumes:
     - ~/iac/applications/web/Caddyfile:/etc/caddy/Caddyfile
     - /mnt/volume/caddy:/data # for persistent certificates

@@ -2,7 +2,7 @@
 #  acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
 #}
 thetillhoff.de {
-  root * /var/www/html
+  root /var/www/html
   file_server
 }
 a.enforge.de {

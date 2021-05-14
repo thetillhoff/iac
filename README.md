@@ -23,7 +23,7 @@ Some devices are special, so their bootstrapping is written down here.
   Afterwards add an empty file named `ssh` to the root of the boot-partition on the micro-SD card. Else, the pi doesn't have SSH enabled.
 - Run `sudo apt update && sudo apt upgrade -y`
 - Run `sudo apt install -y git`
-- Run `git clone https://github.com/tillhoff/iac`
+- Run `git clone https://github.com/thetillhoff/iac`
 - Run `iac/initial/magic-mirror.sh -y`
 - Run `iac/applications/magic-mirror.sh -y`, which triggers a reboot at the end.
 

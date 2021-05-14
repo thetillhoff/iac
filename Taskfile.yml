@@ -18,15 +18,15 @@ tasks:
 
   app:up:
     desc: Start application APP (e.g. APP=web task app:up)
-    dir: applications/$APP
+    dir: applications/{{.APP}}
     cmds:
-      - docker-compose -p $APP -f $APP-compose.yml up -d
+      - docker-compose -p {{.APP}} -f {{.APP}}-compose.yml up -d
 
   app:down:
     desc: Stop application APP (e.g. APP=web task app:down)
-    dir: applications/$APP
+    dir: applications/{{.APP}}
     cmds:
-      - docker-compose -p $APP -f $APP-compose.yml down
+      - docker-compose -p {{.APP}} -f {{.APP}}-compose.yml down
 
 
   configure-applications:

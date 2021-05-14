@@ -10,7 +10,8 @@ services:
     - 443:443
     volumes:
     - ~/iac/applications/web/Caddyfile:/etc/caddy/Caddyfile
-    - /mnt/volume/caddy:/data
+    - /mnt/volume/caddy:/data # for persistent certificates
+    - ~/thetillhoff.de/output:/var/www/html
     networks:
     - shared
 

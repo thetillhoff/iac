@@ -5,6 +5,7 @@ The code needed to deploy my homelab infrastructure.
 
 ## usage
 
+- Decrypt all `*.secret` files with `./transcrypt`.
 - The `Taskfile.yml` contains all day-to-day tasks.
 - The respective folders contain scripts/configuration for specific parts (which are specified in the folder name).
 - In most folders, the scripty are named after hosts (`$HOSTNAME.sh`) - within them is a validator wheter the script is run on the correct host. That can be skipped though.

@@ -17,7 +17,7 @@ services:
       - ~/iac/applications/bookstack/bookstack.secret.ignored
       - ~/iac/applications/bookstack/bookstack.smtp.secret
     volumes:
-      - ~/iac/applications/bookstack/bookstack-config:/config
+      - ~/iac/applications/bookstack/bookstack-config-ignored:/config
     ports:
       - 6875:80
     depends_on:

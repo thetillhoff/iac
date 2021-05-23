@@ -16,4 +16,5 @@ if [[ $EUID -eq 0 ]]; then
   exit
 fi
 
-printf "%s\n" "Doing nothing."
+py ~/iac/hardware/monitor-toggle/monitor-toggle.py
+printf "%s\n" "Toggled monitor."

@@ -17,7 +17,7 @@ alpha-centauri.enforge.de {
   respond "Hi alpha-centauri"
 }
 pw.enforge.de {
-  reverse_proxy http://bitwarden
+  reverse_proxy http://vaultwarden
 }
 book.enforge.de {
   reverse_proxy http://bookstack

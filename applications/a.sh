@@ -22,8 +22,8 @@ if [ ! -f "$file" ]; then
   echo "MYSQL_ROOT_PASSWORD=$(openssl rand -base64 32)" > "$file"
 fi
 
-# create bitwarden secret
-file=bitwarden/bitwarden.secret.ignored
+# create vaultwarden secret
+file=vaultwarden/vaultwarden.secret.ignored
 if [ ! -f "$file" ]; then
   echo "ADMIN_TOKEN=$(openssl rand -base64 32)" > "$file"
 fi

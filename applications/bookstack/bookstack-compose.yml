@@ -26,7 +26,7 @@ services:
     - shared
 
   bookstack_db:
-    image: ghcr.io/linuxserver/mariadb
+    image: ghcr.io/linuxserver/mariadb:alpine-version-10.5.9-r0
     container_name: bookstack_db
     environment:
       - PUID=1000

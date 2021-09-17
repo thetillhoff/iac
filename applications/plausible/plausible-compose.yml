@@ -3,8 +3,8 @@ services:
   mail:
     image: bytemark/smtp
     restart: always
-  networks:
-    - shared
+    networks:
+      - shared
 
   plausible_db:
     image: postgres:12

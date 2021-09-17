@@ -74,3 +74,9 @@ tasks:
         if [ -f "$(hostname).sh" ]; then
           ./$(hostname).sh
         fi
+
+  transcrypt:init:
+    desc: Initiliaze the repos with transcrypt
+    cmds:
+      - |
+        transcrypt -c aes-256-cbc

@@ -44,3 +44,13 @@ if [ ! -f "$file" ]; then
   echo "MYSQL_USER=$DB_BOOKSTACK_USER" >> "$file"
   echo "MYSQL_PASSWORD=$DB_BOOKSTACK_PASS" >> "$file"
 fi
+
+# create plausible secret
+file=plausible/plausible-conf.env
+if [ ! -f "$file" ]; then
+echo "ADMIN_USER_EMAIL=info@enforge.de" > "$file"
+echo "ADMIN_USER_NAME=enforge" >> "$file"
+echo "ADMIN_USER_PWD=$(openssl rand -base64 64)" >> "$file"
+echo "BASE_URL=https://analytics.enforge.de" >> "$file"
+echo "SECRET_KEY_BASE=$(openssl rand -base64 64)" >> "$file"
+fi

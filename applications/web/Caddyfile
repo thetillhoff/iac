@@ -22,6 +22,9 @@ pw.enforge.de {
 book.enforge.de {
   reverse_proxy http://bookstack
 }
+analytics.enforge.de {
+  reverse_proxy http://plausible
+}
 :9999 {
   respond "I'm healthy!"
   #redir alpha-centauri.enforge.de{uri}

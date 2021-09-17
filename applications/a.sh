@@ -53,4 +53,5 @@ echo "ADMIN_USER_NAME=enforge" >> "$file"
 echo "ADMIN_USER_PWD=$(openssl rand -base64 64)" >> "$file"
 echo "BASE_URL=https://analytics.enforge.de" >> "$file"
 echo "SECRET_KEY_BASE=$(openssl rand -base64 64)" >> "$file"
+echo "PORT=80" >> "$file"
 fi

@@ -28,6 +28,12 @@ tasks:
     cmds:
       - docker-compose -p {{.APP}} -f {{.APP}}-compose.yml down
 
+  app:restart:
+    desc: Stop application APP and restart it afterwards (e.g. APP=web task app:restart)
+    dir: applications/{{.APP}}
+    cmds:
+      - docker-compose -p {{.APP}} -f {{.APP}}-compose.yml down
+      - docker-compose -p {{.APP}} -f {{.APP}}-compose.yml up -d
 
   configure-applications:
     desc: Configure applications for/on this host
